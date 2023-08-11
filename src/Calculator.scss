@@ -1,3 +1,5 @@
+@import 'breakpoints';
+
 //переменные
 $bg-color: #aabbc7;
 $main-color: #f0f5f9;
@@ -5,10 +7,18 @@ $second-color: #fff;
 $border-color: #d3e0ea;
 $btn-color: #3498db;
 
+/* breakpoints */
+
+@include breakpoints((
+        xlarge: (1320px, 1680px),
+        large: (981px, 1319px),
+        medium: (737px, 980px),
+        small: (null, 736px)
+));
+
 * {
   font-family: 'Jost', sans-serif;
 }
-
 
 html {
   cursor: url("../public/cursor.png"), auto;
@@ -33,7 +43,7 @@ html {
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 20vw;
+      width: 30vw;
       margin: 0 auto;
     }
 
@@ -131,6 +141,26 @@ html {
       top: 0;
       left: 0;
       backdrop-filter: blur(8px);
+    }
+
+    @include breakpoint('<=large') {
+      .calculator-container {
+        width: 40vw;
+      }
+    }
+
+    @include breakpoint('<=small') {
+      .calculator-container {
+        width: 80vw;
+      }
+
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 90vw;
+      }
     }
   }
 }

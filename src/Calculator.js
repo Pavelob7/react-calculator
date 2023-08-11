@@ -91,7 +91,7 @@ function Calculator() {
         onChange={(e) => handleInputChange(e, 'num2')}
       />
 
-      <div>
+      <div className="buttons">
         {operations.map((operation) => (
           <button className="operator-button" key={operation} onClick={() => handleCalculation(operation)}>
             {operation}
